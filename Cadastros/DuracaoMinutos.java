@@ -13,13 +13,21 @@ public class DuracaoMinutos {
 	
 	public int calculaDuracaoMinutos() {
 		if (minutosTermino > minutosInicio) 
-			duracaoMinutos = minutosTermino - minutosInicio;
+			getMinutosTerminoMaiorQueInicio();
 		else {
-			duracaoMinutos = 60 - minutosInicio + minutosTermino;
-			if (duracaoMinutos == 60) //caso especial
-				duracaoMinutos = 0;
+			getMinutosInicioMaiorQueTermino();
 		}
+		
 		return duracaoMinutos;
 	}
 	
+	public void getMinutosTerminoMaiorQueInicio() {
+		duracaoMinutos = minutosTermino - minutosInicio;
+	}
+	
+	public void getMinutosInicioMaiorQueTermino() {
+		duracaoMinutos = 60 - minutosInicio + minutosTermino;
+		if (duracaoMinutos == 60) //caso especial
+			duracaoMinutos = 0;
+	}
 }
